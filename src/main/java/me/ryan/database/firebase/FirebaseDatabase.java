@@ -23,7 +23,7 @@ public class FirebaseDatabase implements Database {
 
         try {
             ClassLoader loader = getClass().getClassLoader();
-            InputStream serviceAccount = loader.getResourceAsStream("~/cpi-web-service-firebase-adminsdk-fgn9n-d2d9b580f5.json");
+            InputStream serviceAccount = loader.getResourceAsStream("cpi-web-service-firebase-adminsdk-fgn9n-d2d9b580f5.json");
 
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))
