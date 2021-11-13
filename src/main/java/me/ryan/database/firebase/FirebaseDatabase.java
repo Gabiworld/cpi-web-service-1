@@ -30,9 +30,6 @@ public class FirebaseDatabase implements Database {
                     .setDatabaseUrl("https://cpi-web-service.firebaseio.com")
                     .build();
             
-            FirestoreOptions options = FirestoreOptions.newBuilder().setTimestampsInSnapshotsEnabled(true).build();
-            Firestore firestore = options.getService();
-
             FirebaseApp.initializeApp(options);
         } catch (IOException ex) {
             APICore.getLogger().severe("An error occurred while attempting to initialize the Firebase database.");
