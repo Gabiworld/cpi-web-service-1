@@ -21,8 +21,9 @@ public class FirebaseDatabase implements Database {
     public void setup() {
         APICore.getLogger().info("Initializing Firebase database...");
 
-        try {FileInputStream serviceAccount =
-        new FileInputStream("serviceAccountKey.json");
+        try {
+            ClassLoader loader = getClass().getClassLoader();
+            InputStream serviceAccount = loader.getResourceAsStream("serviceacc.json");
 
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))
