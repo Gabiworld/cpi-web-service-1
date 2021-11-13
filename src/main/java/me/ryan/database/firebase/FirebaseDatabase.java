@@ -29,6 +29,9 @@ public class FirebaseDatabase implements Database {
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))
                     .setDatabaseUrl("https://cpi-web-service.firebaseio.com")
                     .build();
+            
+            FirestoreOptions options = FirestoreOptions.newBuilder().setTimestampsInSnapshotsEnabled(true).build();
+            Firestore firestore = options.getService();
 
             FirebaseApp.initializeApp(options);
         } catch (IOException ex) {
