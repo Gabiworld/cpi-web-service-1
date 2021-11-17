@@ -44,21 +44,18 @@ public class ChatFilter {
                 if (words != null) {
                     CURSES.addAll(words);
                 } else {
-                    System.out.println("Can't find chat filter words! (null)");
-                    //System.out.println("Chat filter words could not be found! Please resolve this before attempting to start again. Shutting down... (words == null)");
-                    //System.exit(-1);
+                    System.out.println("Chat filter words could not be found! Please resolve this before attempting to start again. Shutting down... (words == null)");
+                    System.exit(-1);
                 }
             } else {
-                System.out.println("Can't find chat filter words! (false)");
-                //System.out.println("Chat filter words could not be found! Please resolve this before attempting to start again. Shutting down... (document.exists() == false)");
-                //System.exit(-1);
+                System.out.println("Chat filter words could not be found! Please resolve this before attempting to start again. Shutting down... (document.exists() == false)");
+                System.exit(-1);
             }
         } catch (Exception e) {
-            System.out.println("Can't find chat filter words! (fatal)");
-            //System.out.println("A fatal error occurred while attempting to initialize the chat filter! Shutting down...");
-            //e.printStackTrace();
+            System.out.println("A fatal error occurred while attempting to initialize the chat filter! Shutting down...");
+            e.printStackTrace();
 
-            //System.exit(-1);
+            System.exit(-1);
         }
 
         ClassLoader loader = ChatFilter.class.getClassLoader();
@@ -68,11 +65,10 @@ public class ChatFilter {
                 COMMON_PASSWORDS.add(line);
             }
         } catch (IOException e) {
-            System.out.println("Can't find chat filter words! (fatal)");
-            //System.out.println("A fatal error occurred while attempting to read common passwords list! Shutting down...");
-            //e.printStackTrace();
+            System.out.println("A fatal error occurred while attempting to read common passwords list! Shutting down...");
+            e.printStackTrace();
 
-            //System.exit(-1);
+            System.exit(-1);
         }
 
         TRANSLATION.put("@", "a");
@@ -366,6 +362,8 @@ public class ChatFilter {
         NAMES.add("Wolfyjumps");
         NAMES.add("Luv2dance160");
         NAMES.add("Sensei");
+        
+        CURSES.add("fuck");
     }
 
     public ChatFilter(Firestore db) {
