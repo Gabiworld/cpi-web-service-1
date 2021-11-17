@@ -84,7 +84,7 @@ public class LoginByPassword implements Handler {
             verifyReqBody.put("returnSecureToken", true);
             RequestBody body = RequestBody.create(MediaType.parse("application/json"), verifyReqBody.toString());
 
-            String apiKey = "AIzaSyAEbxc1jwhD7tKL4V_oeDsTCH0Ees3DIng";
+            String apiKey = "AIzaSyDG06kskPej6Ckh0Ofk47JD1p4FipY3HFQ";
             Request verifyPasswordRequest = new Request.Builder()
                     .url("https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=" + apiKey)
                     .post(body)
