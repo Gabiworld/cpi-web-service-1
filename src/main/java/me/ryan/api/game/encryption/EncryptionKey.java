@@ -32,16 +32,18 @@ public class EncryptionKey implements Handler {
         String exponentAsString = object.get("exponent").getAsString();
         String modulusAsString = object.get("modulus").getAsString();
 
-//            String encodedToken = request.headers("Authorization").split("Basic ")[1].split(", GAE")[0];
-//            String token = new String(Base64.getDecoder().decode(encodedToken)).split(":")[0];
-//
-//            boolean checkRevoked = true;
-//            FirebaseToken decodedToken = FirebaseAuth.getInstance().verifyIdToken(token, checkRevoked);
-//            String uid = decodedToken.getUid();
-//
-//            Sentry.getContext().setUser(new UserBuilder().setId(uid).build());
-//
-//            APICore.getLogger().info("Successfully verified and decoded ID token for user: " + uid + " (EncryptionKey)");
+            String encodedToken = request.headers("Authorization").split("Basic ")[1].split(", GAE")[0];
+            String token = new String(Base64.getDecoder().decode(encodedToken)).split(":")[0];
+            String encodedToken = request.headers("Authorization").split("Basic ")[1].split(", GAE")[0];
+            String token = new String(Base64.getDecoder().decode(encodedToken)).split(":")[0];
+
+            boolean checkRevoked = true;
+            FirebaseToken decodedToken = FirebaseAuth.getInstance().verifyIdToken(token, checkRevoked);
+            String uid = decodedToken.getUid();
+
+            Sentry.getContext().setUser(new UserBuilder().setId(uid).build());
+
+            APICore.getLogger().info("Successfully verified and decoded ID token for user: " + uid + " (EncryptionKey)");
 
         byte[] modulus = Base64.getDecoder().decode(modulusAsString);
         byte[] exponent = Base64.getDecoder().decode(exponentAsString);
