@@ -22,24 +22,18 @@ public class RedisDatabase implements Database {
 
         connection = new HashMap<>();
 
-        // API CACHE (SESSION KEYS)
-        // adamant-trail
-        // https://railway.app/project/1d792c29-5414-47bb-afb3-19b3d56cec66
         connection.put(1, client.connect(RedisURI.builder()
-                .withHost("23.17.52.134")
-                .withPort(6379)
-                .withPassword("")
+                .withHost("containers-us-west-16.railway.app")
+                .withPort(6489)
+                .withPassword("m2zPKgbmKDdAyI6B43Vq")
                 .withDatabase(0)
                 .build()
         ));
 
-        // GAME CACHE (JOIN ROOM DATA, QUEST DATA)
-        // truthful-minute
-        // https://railway.app/project/00ba2ba4-3e7b-4d66-80ee-0486115257fa
         connection.put(2, client.connect(RedisURI.builder()
-                .withHost("23.17.52.134")
-                .withPort(6379)
-                .withPassword("")
+                .withHost("containers-us-west-16.railway.app")
+                .withPort(6489)
+                .withPassword("m2zPKgbmKDdAyI6B43Vq")
                 .withDatabase(1)
                 .build()
         ));
