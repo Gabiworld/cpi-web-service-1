@@ -23,17 +23,17 @@ public class RedisDatabase implements Database {
         connection = new HashMap<>();
 
         connection.put(1, client.connect(RedisURI.builder()
-                .withHost("containers-us-west-16.railway.app")
-                .withPort(6489)
-                .withPassword("m2zPKgbmKDdAyI6B43Vq")
+                .withHost("containers-us-west-69.railway.app")
+                .withPort(5605)
+                .withPassword("UMJS94FHEKuXj993qQZq")
                 .withDatabase(0)
                 .build()
         ));
 
         connection.put(2, client.connect(RedisURI.builder()
-                .withHost("containers-us-west-16.railway.app")
-                .withPort(6489)
-                .withPassword("m2zPKgbmKDdAyI6B43Vq")
+                .withHost("containers-us-west-100.railway.app")
+                .withPort(7445)
+                .withPassword("RI5zB02sVLkWcOCqhIDz")
                 .withDatabase(1)
                 .build()
         ));
